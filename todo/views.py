@@ -7,6 +7,15 @@ def home(request):
     context = {'tareas': tareas}
     return render(request, 'todo/home.html', context)
 
+def home(request):
+    tareas = Tarea.objects.all()
+    total = tareas.count()
+    
+    return render(request, 'todo/home.html', {
+        'tareas': tareas,
+        'total': total
+    })  
+
 def agregar(request):
     if request.method == 'POST':
         form = TareaForm(request.POST)
