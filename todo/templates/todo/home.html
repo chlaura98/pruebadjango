@@ -1,7 +1,10 @@
 {% extends 'todo/layout.html' %}
 
 {% block content %}
-    <h1 class="mb-4">Lista de tareas</h1>
+    <h1 class="titulo-georgia">Lista de tareas</h1>
+    <div class="alert alert-info mb-3">
+        📋 Total de tareas: <strong>{{ total }}</strong>
+    </div>
 
     {% for tarea in tareas %}
         <div class="card mb-2">
@@ -13,6 +16,7 @@
                 </div>
             </div>
         </div>
+        
     {% empty %}
         <p>No hay tareas aún.</p>
     {% endfor %}
